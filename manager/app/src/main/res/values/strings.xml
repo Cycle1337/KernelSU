@@ -89,6 +89,8 @@
     <string name="require_kernel_version">The current KernelSU-Next version %d is too low for the manager to work properly. Please upgrade to version %d or higher!</string>
     <string name="settings_umount_modules_default">Umount modules by default</string>
     <string name="settings_umount_modules_default_summary">The global default value for \"Umount modules\" in App Profile. If enabled, it will remove all module modifications to the system for apps that don\'t have a profile set.</string>
+    <string name="settings_susfs_toggle">Hide suspecious su with SuSFS</string>
+    <string name="settings_susfs_toggle_summary">It disables kprobe hooks made by ksu, and instead the non-kprobe inline hooks will be enabled, just the same implementation for non-gki kernel without kprobe supported.</string>
     <string name="profile_umount_modules_summary">Enabling this option will allow KernelSU-Next to restore any modified files by the modules for this app.</string>
     <string name="profile_selinux_domain">Domain</string>
     <string name="profile_selinux_rules">Rules</string>

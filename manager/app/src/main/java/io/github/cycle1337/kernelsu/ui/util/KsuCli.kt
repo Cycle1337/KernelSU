@@ -1,4 +1,4 @@
-package com.rifsxd.ksunext.ui.util
+package io.github.cycle1337.kernelsu.ui.util
 
 import android.content.ContentResolver
 import android.content.Context
@@ -16,9 +16,9 @@ import com.topjohnwu.superuser.ShellUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.parcelize.Parcelize
-import com.rifsxd.ksunext.BuildConfig
-import com.rifsxd.ksunext.Natives
-import com.rifsxd.ksunext.ksuApp
+import io.github.cycle1337.kernelsu.BuildConfig
+import io.github.cycle1337.kernelsu.Natives
+import io.github.cycle1337.kernelsu.ksuApp
 import org.json.JSONArray
 import java.io.File
 
@@ -139,6 +139,22 @@ fun getSuSFSVersion(): String {
 fun getSuSFSVariant(): String {
     val shell = getRootShell()
     val result = ShellUtils.fastCmd(shell, "${getSuSFSPath()} variant")
+    return result
+}
+
+fun susfsSUSSU_0(): String {
+    val shell = getRootShell()
+    val result = ShellUtils.fastCmd(shell, "${getSuSFSPath()} sus_su 0")
+    return result
+}
+fun susfsSUSSU_1(): String {
+    val shell = getRootShell()
+    val result = ShellUtils.fastCmd(shell, "${getSuSFSPath()} sus_su 2")
+    return result
+}
+fun susfsSUSSU_Mode(): String {
+    val shell = getRootShell()
+    val result = ShellUtils.fastCmd(shell, "${getSuSFSPath()} sus_su show_working_mode")
     return result
 }
 
@@ -426,7 +442,7 @@ fun getAppProfileTemplate(id: String): String {
 fun setAppProfileTemplate(id: String, template: String): Boolean {
     val shell = getRootShell()
     val escapedTemplate = template.replace("\"", "\\\"")
-    val cmd = """${getKsuDaemonPath()} profile set-template "$id" "$escapedTemplate'""""
+    val cmd = """${getKsuDaemonPath()} profile set-template "$id" "$escapedTemplate'"""
     return shell.newJob().add(cmd)
         .to(ArrayList(), null).exec().isSuccess
 }

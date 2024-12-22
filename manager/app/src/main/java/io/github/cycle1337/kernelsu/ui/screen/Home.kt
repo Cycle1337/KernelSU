@@ -1,4 +1,4 @@
-package com.rifsxd.ksunext.ui.screen
+package io.github.cycle1337.kernelsu.ui.screen
 
 import android.content.Context
 import android.os.Build
@@ -35,11 +35,11 @@ import com.ramcosta.composedestinations.generated.destinations.InstallScreenDest
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import com.rifsxd.ksunext.*
-import com.rifsxd.ksunext.R
-import com.rifsxd.ksunext.ui.component.rememberConfirmDialog
-import com.rifsxd.ksunext.ui.util.*
-import com.rifsxd.ksunext.ui.util.module.LatestVersionInfo
+import io.github.cycle1337.kernelsu.*
+import io.github.cycle1337.kernelsu.R
+import io.github.cycle1337.kernelsu.ui.component.rememberConfirmDialog
+import io.github.cycle1337.kernelsu.ui.util.*
+import io.github.cycle1337.kernelsu.ui.util.module.LatestVersionInfo
 import androidx.compose.ui.graphics.vector.ImageVector
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -406,7 +406,7 @@ private fun InfoCard() {
             if (suSFS != "Unsupported") {
                 InfoCardItem(
                     label = stringResource(R.string.home_susfs_version),
-                    content = "${getSuSFSVersion()} (${getSuSFSVariant()})",
+                    content = "${getSuSFSVersion()} (${getSuSFSVariant()}) [+] sus_su mode: ${susfsSUSSU_Mode()}",
                     icon = Icons.Filled.SettingsSuggest,
                 )
             }

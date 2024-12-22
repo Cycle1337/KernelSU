@@ -19,17 +19,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Undo
-import androidx.compose.material.icons.filled.BugReport
-import androidx.compose.material.icons.filled.Compress
-import androidx.compose.material.icons.filled.ContactPage
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.DeleteForever
-import androidx.compose.material.icons.filled.DeveloperMode
-import androidx.compose.material.icons.filled.Fence
-import androidx.compose.material.icons.filled.RemoveModerator
-import androidx.compose.material.icons.filled.Save
-import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.Update
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -87,6 +77,7 @@ import io.github.cycle1337.kernelsu.ui.component.rememberCustomDialog
 import io.github.cycle1337.kernelsu.ui.component.rememberLoadingDialog
 import io.github.cycle1337.kernelsu.ui.util.LocalSnackbarHost
 import io.github.cycle1337.kernelsu.ui.util.getBugreportFile
+import io.github.cycle1337.kernelsu.ui.util.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -194,6 +185,26 @@ fun SettingScreen(navigator: DestinationsNavigator) {
             ) {
                 prefs.edit().putBoolean("enable_web_debugging", it).apply()
                 enableWebDebugging = it
+            }
+
+            val suSFSVar = getSuSFSVariant()
+            if (suSFSVar != "NON-GKI") {
+                var isEnabled by rememberSaveable {
+                    mutableStateOf(susfsSUSSU_Mode() == "2")
+                }
+                SwitchItem(
+                    icon = Icons.Filled.VisibilityOff,
+                    title = stringResource(id = R.string.settings_susfs_toggle),
+                    summary = stringResource(id = R.string.settings_susfs_toggle_summary),
+                    checked = isEnabled
+                ) {
+                    if (it) {
+                        susfsSUSSU_1()
+                    } else {
+                        susfsSUSSU_0()
+                    }
+                    isEnabled = it
+                }
             }
 
             var showBottomsheet by remember { mutableStateOf(false) }
