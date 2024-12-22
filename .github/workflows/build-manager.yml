@@ -80,6 +80,9 @@ jobs:
           mkdir -p app/src/main/jniLibs/arm64-v8a
           cp -f ../aarch64-linux-android/release/ksud ../manager/app/src/main/jniLibs/arm64-v8a/libksud.so
 
+      - name: Set execute permission for gradlew
+        run: chmod +x ./gradlew
+
       - name: Build with Gradle
         run: |
           {
