@@ -1,4 +1,4 @@
-package io.github.cycle1337.kernelsu.ui.util
+package com.rifsxd.ksunext.ui.util
 
 import android.content.ContentResolver
 import android.content.Context
@@ -16,9 +16,9 @@ import com.topjohnwu.superuser.ShellUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.parcelize.Parcelize
-import io.github.cycle1337.kernelsu.BuildConfig
-import io.github.cycle1337.kernelsu.Natives
-import io.github.cycle1337.kernelsu.ksuApp
+import com.rifsxd.ksunext.BuildConfig
+import com.rifsxd.ksunext.Natives
+import com.rifsxd.ksunext.ksuApp
 import org.json.JSONArray
 import java.io.File
 
@@ -127,14 +127,18 @@ private fun getSuSFSPath(): String {
 fun getSuSFS(): String {
     val shell = getRootShell()
     val result = ShellUtils.fastCmd(shell, "${getSuSFSPath()} support")
-
     return result
 }
 
 fun getSuSFSVersion(): String {
     val shell = getRootShell()
     val result = ShellUtils.fastCmd(shell, "${getSuSFSPath()} version")
+    return result
+}
 
+fun getSuSFSVariant(): String {
+    val shell = getRootShell()
+    val result = ShellUtils.fastCmd(shell, "${getSuSFSPath()} variant")
     return result
 }
 

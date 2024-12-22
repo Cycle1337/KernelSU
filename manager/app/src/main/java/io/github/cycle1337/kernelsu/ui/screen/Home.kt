@@ -1,4 +1,4 @@
-package io.github.cycle1337.kernelsu.ui.screen
+package com.rifsxd.ksunext.ui.screen
 
 import android.content.Context
 import android.os.Build
@@ -35,11 +35,11 @@ import com.ramcosta.composedestinations.generated.destinations.InstallScreenDest
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import io.github.cycle1337.kernelsu.*
-import io.github.cycle1337.kernelsu.R
-import io.github.cycle1337.kernelsu.ui.component.rememberConfirmDialog
-import io.github.cycle1337.kernelsu.ui.util.*
-import io.github.cycle1337.kernelsu.ui.util.module.LatestVersionInfo
+import com.rifsxd.ksunext.*
+import com.rifsxd.ksunext.R
+import com.rifsxd.ksunext.ui.component.rememberConfirmDialog
+import com.rifsxd.ksunext.ui.util.*
+import com.rifsxd.ksunext.ui.util.module.LatestVersionInfo
 import androidx.compose.ui.graphics.vector.ImageVector
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -372,15 +372,16 @@ private fun InfoCard() {
             }
 
 
-            InfoCardItem(stringResource(R.string.home_kernel),
-                uname.release,
+            InfoCardItem(
+                label = stringResource(R.string.home_kernel),
+                content = uname.release,
                 icon = Icons.Filled.Memory,
             )
 
             Spacer(Modifier.height(16.dp))
             InfoCardItem(
-                stringResource(R.string.home_android),
-                "${Build.VERSION.RELEASE} (${Build.VERSION.SDK_INT})",
+                label = stringResource(R.string.home_android),
+                content = "${Build.VERSION.RELEASE} (${Build.VERSION.SDK_INT})",
                 icon = Icons.Filled.Android,
 
             )
@@ -388,8 +389,8 @@ private fun InfoCard() {
             Spacer(Modifier.height(16.dp))
             val managerVersion = getManagerVersion(context)
             InfoCardItem(
-                stringResource(R.string.home_manager_version),
-                "${managerVersion.first}-next (${managerVersion.second})",
+                label = stringResource(R.string.home_manager_version),
+                content = "${managerVersion.first}-next (${managerVersion.second})",
                 icon = Icons.AutoMirrored.Filled.Article,
             )
 
@@ -401,11 +402,11 @@ private fun InfoCard() {
             )
             
             Spacer(Modifier.height(16.dp))
-            val suSFS = getSuSFSVersion()
+            val suSFS = getSuSFS()
             if (suSFS != "Unsupported") {
                 InfoCardItem(
                     label = stringResource(R.string.home_susfs_version),
-                    content = getSuSFSVersion(),
+                    content = "${getSuSFSVersion()} (${getSuSFSVariant()})",
                     icon = Icons.Filled.SettingsSuggest,
                 )
             }
