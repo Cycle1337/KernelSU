@@ -5,8 +5,8 @@
     <string name="issue_report_body_2">Let us know as soon as possible!</string>
     <string name="issue_report_github">Report on GitHub</string>
     <string name="issue_report_telegram">Contact via Telegram</string>
-    <string name="issue_report_github_link">https://github.com/rifsxd/KernelSU-Next/issues</string>
-    <string name="issue_report_telegram_link">https://t.me/ksunext</string>
+    <string name="issue_report_github_link">https://github.com/Cycle1337/KernelSU-Next/issues</string>
+    <string name="issue_report_telegram_link">https://t.me/Cycle1337</string>
     <string name="confirm">Confirm</string>
     <string name="app_name" translatable="false">KernelSU Next</string>
     <string name="home">Home</string>
@@ -63,7 +63,7 @@
     <string name="reboot_to_apply">Reboot to take effect</string>
     <string name="module_magisk_conflict">Modules are unavailable due to a conflict with Magisk!</string>
     <string name="home_next_kernelsu">🔥 Next Build</string>
-    <string name="home_next_kernelsu_repo">https://github.com/rifsxd/KernelSU-Next</string>
+    <string name="home_next_kernelsu_repo">https://github.com/Cycle1337/KernelSU-Next</string>
     <string name="home_next_kernelsu_body">Next experimental branch. Check it out on GitHub!</string>
     <string name="home_experimental_kernelsu">⚠️ Experimental Development Warning!</string>
     <string name="home_experimental_kernelsu_repo">127.0.0.1</string>
