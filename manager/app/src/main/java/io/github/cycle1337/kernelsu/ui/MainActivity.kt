@@ -46,6 +46,7 @@ import io.github.cycle1337.kernelsu.ui.theme.KernelSUTheme
 import io.github.cycle1337.kernelsu.ui.util.LocalSnackbarHost
 import io.github.cycle1337.kernelsu.ui.util.rootAvailable
 import io.github.cycle1337.kernelsu.ui.util.install
+import io.github.cycle1337.kernelsu.ui.util.*
 
 class MainActivity : ComponentActivity() {
 
@@ -61,6 +62,17 @@ class MainActivity : ComponentActivity() {
 
         val isManager = Natives.becomeManager(ksuApp.packageName)
 	    if (isManager) install()
+
+        val prefs = getSharedPreferences("settings", MODE_PRIVATE)
+
+        val suSFSVar = getSuSFSVariant()
+        if (suSFSVar != "NON-GKI") {
+            if (prefs.getBoolean("enable_susfs", false)) {
+                if (susfsSUSSU_Mode() != "2") {
+                    susfsSUSSU_1()
+                }
+            }
+        }
 
         setContent {
             KernelSUTheme {

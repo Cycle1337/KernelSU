@@ -186,11 +186,11 @@ fun SettingScreen(navigator: DestinationsNavigator) {
                 prefs.edit().putBoolean("enable_web_debugging", it).apply()
                 enableWebDebugging = it
             }
-
+            
             val suSFSVar = getSuSFSVariant()
             if (suSFSVar != "NON-GKI") {
                 var isEnabled by rememberSaveable {
-                    mutableStateOf(susfsSUSSU_Mode() == "2")
+                    mutableStateOf(prefs.getBoolean("enable_susfs", susfsSUSSU_Mode() == "2"))
                 }
                 SwitchItem(
                     icon = Icons.Filled.VisibilityOff,
@@ -203,6 +203,7 @@ fun SettingScreen(navigator: DestinationsNavigator) {
                     } else {
                         susfsSUSSU_0()
                     }
+                    prefs.edit().putBoolean("enable_susfs", it).apply()
                     isEnabled = it
                 }
             }
